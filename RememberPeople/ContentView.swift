@@ -6,19 +6,39 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
+    @FetchRequest(sortDescriptors: []) var contacts: FetchedResults<Contact>
+    @State private var showAddContactSheet = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView{
+            VStack {
+                List(contacts){ contact in
+                    Text(contact.name ?? "Unknown")
+                }
+                
+            }
+            .toolbar{
+                ToolbarItem(placement: .topBarTrailing){
+                    Button{
+                        showAddContactSheet = true
+                    }label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
         }
-        .padding()
+        .sheet(isPresented: $showAddContactSheet){
+            AddContact()
+        }
     }
 }
 
 #Preview {
-    ContentView()
+    let dataController = DataController()
+    let context = dataController.container.viewContext
+    return ContentView()
+        .environment(\.managedObjectContext, context)
 }

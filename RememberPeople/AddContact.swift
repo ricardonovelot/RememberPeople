@@ -9,10 +9,13 @@ import SwiftUI
 import PhotosUI
 
 struct AddContact: View {
-    @Environment(\.managedObjectContext) var moc
+    @Environment(\.managedObjectContext) var newContact
     @Environment(\.dismiss) var dismiss
     @State private var pickerItem: PhotosPickerItem?
     @State private var selectedImage: Image?
+    @State private var data: Data?
+    @State private var optionalData = UIImage(systemName: "person.circle.fill")?.jpegData(compressionQuality: 1)
+        
     
     @State private var name: String = ""
     
@@ -41,23 +44,23 @@ struct AddContact: View {
             .navigationTitle("New Contact")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
-                ToolbarItem(placement: .topBarLeading){
-                    Button{
-                        dismiss()
-                    }label: {
-                        Text("Cancel")
-                    }
-                }
+//                ToolbarItem(placement: .topBarLeading){
+//                    Button{
+//                        dismiss()
+//                    }label: {
+//                        Text("Cancel")
+//                    }
+//                }
                 
-                ToolbarItem(placement: .topBarTrailing
-                ){
+                ToolbarItem(placement: .topBarTrailing){
                     Button{
-                        let contact = Contact(context: moc)
+                        let contact = Contact(context: newContact)
                         
                         contact.id = UUID()
                         contact.name = name
                         
-                        try? moc.save()
+                        try? newContact.save()
+                        dismiss()
                     }label: {
                         Text("Save")
                     }
@@ -68,7 +71,6 @@ struct AddContact: View {
 }
 
 #Preview {
-    let context = CoreDataManager.shared.context
     
     AddContact()
 }

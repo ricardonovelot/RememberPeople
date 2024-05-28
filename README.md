@@ -17,7 +17,7 @@
 
 <h3>Technical Highlights</h3>
 <ul>
-<li>Core Data</li>
+<li>CoreData</li>
 <li>PhotosUI</li>
 </ul>
 <br>

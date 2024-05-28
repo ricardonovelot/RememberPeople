@@ -1,6 +1,6 @@
 <h3><a href="https://github.com/ricardonovelot">❮‎‎‎ &nbsp; Recent Projects</a></h3>
 
-<h1>BucketList</h1>
+<h1>RememberPeople</h1>
 
 <table>
 <tr>
@@ -24,7 +24,7 @@
 
 </td>
 <td valign="top">
-<img src="https://github.com/ricardonovelot/RememberPeople/assets/84286086/941d0ba7-ffba-4168-92e3-70dab3db4ab5" width="500">
+<img src="https://github.com/ricardonovelot/RememberPeople/assets/84286086/12b87059-083d-453f-9048-e34e90fe2b4d" width="500">
 </td>
 </tr>
 </table>

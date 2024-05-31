@@ -15,6 +15,9 @@ struct ContactForm: View {
     @State private var notes: String
     @State private var dateMet: Date
     @State private var tagInput: String = ""
+    @State private var isShowingDeleteActions = false
+    @State private var tagToDelete: Tag? = nil
+
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) private var allTags: FetchedResults<Tag>
     
     init(contact: Contact) {
@@ -30,8 +33,12 @@ struct ContactForm: View {
     
     var body: some View {
         Form {
-            Section{
+            Section {
                 DatePicker("Date Met", selection: $dateMet, displayedComponents: .date)
+            }
+            
+            Section {
+                TextField("Name", text: $name)
             }
             
             Section {
@@ -62,10 +69,6 @@ struct ContactForm: View {
             }
             .listRowInsets(EdgeInsets())
             
-            Section("Name") {
-                TextField("Name", text: $name)
-            }
-            
             Section("Notes") {
                 TextEditor(text: $notes)
                     .frame(minHeight: 100)
@@ -73,7 +76,13 @@ struct ContactForm: View {
             }
             
             Section("Tags") {
-                TextField("Add Tag", text: $tagInput, onCommit: addTag)
+                HStack {
+                    TextField("Add Tag", text: $tagInput, onCommit: addTag)
+                    Button(action: addTag) {
+                        Image(systemName: "plus.circle.fill")
+                            .foregroundColor(.blue)
+                    }
+                }
                 List {
                     ForEach(allTags) { tag in
                         Button(action: { toggleTag(tag) }) {
@@ -85,7 +94,22 @@ struct ContactForm: View {
                                 }
                             }
                         }
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                tagToDelete = tag
+                                isShowingDeleteActions = true
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
                     }
+                }
+            }
+        }
+        .confirmationDialog("Delete tag?", isPresented: $isShowingDeleteActions) {
+            Button("Confirm Delete", role: .destructive) {
+                if let tag = tagToDelete {
+                    deleteTag(tag)
                 }
             }
         }
@@ -118,6 +142,12 @@ struct ContactForm: View {
         } else {
             contact.addToTags(tag)
         }
+        saveContext()
+    }
+    
+    private func deleteTag(_ tag: Tag) {
+        contact.removeFromTags(tag)
+        viewContext.delete(tag)
         saveContext()
     }
     
@@ -154,5 +184,3 @@ extension Contact {
     return ContactForm(contact: Contact(context: context))
         .environment(\.managedObjectContext, context)
 }
-
-

@@ -1,10 +1,3 @@
-//
-//  ContactsView.swift
-//  RememberPeople
-//
-//  Created by Ricardo on 29/05/24.
-//
-
 import SwiftUI
 import CoreData
 
@@ -13,6 +6,7 @@ struct ContactsView: View {
     @Environment(\.managedObjectContext) var viewContext
     @State private var showAddContactSheet = false
     @State private var showSettingsSheet = false
+    @State private var showingGrid = true
     @State private var contactToEdit: Contact?
     @State private var selectedTag: Tag?
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) private var allTags: FetchedResults<Tag>
@@ -31,20 +25,22 @@ struct ContactsView: View {
                                             .scaledToFill()
                                             .frame(width: 30, height: 30)
                                             .clipShape(RoundedRectangle(cornerRadius: 5))
-                                            .padding(.leading, -12)
+                                            .padding(.leading, -8)
                                     } else {
                                         Rectangle()
                                             .fill(Color(UIColor.quaternarySystemFill))
                                             .frame(width: 30, height: 30)
                                             .clipShape(RoundedRectangle(cornerRadius: 5))
-                                            .padding(.leading, -12)
+                                            .padding(.leading, -8)
                                     }
                                     Text(contact.name ?? "New Person")
                                         .foregroundColor(contact.name == "New Person" ? Color(UIColor.quaternaryLabel) : Color.primary)
                                 }
                             }
                         }
-                        .onDelete(perform: deleteContacts)
+                        .onDelete { indexSet in
+                            deleteContacts(at: indexSet, for: date)
+                        }
                     }
                 }
             }
@@ -63,23 +59,46 @@ struct ContactsView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
-                        Button("All Tags") {
+                        Button {
                             selectedTag = nil
+                        } label: {
+                            Label("All Tags", systemImage: "tag")
+                                .foregroundColor(selectedTag == nil ? .accentColor : .primary)
                         }
                         ForEach(sortedTags) { tag in
                             Button {
                                 selectedTag = tag
                             } label: {
-                                Text("\(tag.name ?? "")")
+                                Label("\(tag.name ?? "")", systemImage: "tag")
+                                    .foregroundColor(selectedTag == tag ? .accentColor : .primary)
+                                    .overlay(
+                                        selectedTag == tag ? Image(systemName: "checkmark").foregroundColor(.accentColor) : nil,
+                                        alignment: .trailing
+                                    )
                             }
                         }
                     } label: {
-                        Label("Filter", systemImage: "line.horizontal.3.decrease.circle")
+                        Label("Filter", systemImage: selectedTag != nil ? "line.horizontal.3.decrease.circle.fill" : "line.horizontal.3.decrease.circle")
                     }
                 }
                 ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        showSettingsSheet = true
+                    Menu {
+                        Button {
+                            showSettingsSheet = true
+                        } label: {
+                            Label("Settings", systemImage: "gear")
+                        }
+                        Button {
+                            showingGrid.toggle()
+                        } label: {
+                            Label("Change Layout", systemImage: "square.on.square.intersection.dashed")
+                        }
+                        
+                        Button {
+                            selectedTag = nil
+                        } label: {
+                            Label("Clear Filter", systemImage: "xmark.circle")
+                        }
                     } label: {
                         Image(systemName: "ellipsis.circle")
                     }
@@ -95,7 +114,7 @@ struct ContactsView: View {
                 }
             }
         }
-        .sheet(isPresented: $showSettingsSheet){
+        .sheet(isPresented: $showSettingsSheet) {
             SettingsView()
         }
     }
@@ -108,9 +127,11 @@ struct ContactsView: View {
         }
     }
     
-    private func deleteContacts(at offsets: IndexSet) {
+    private func deleteContacts(at offsets: IndexSet, for date: Date) {
+        guard let contactsForDate = groupedContacts[date] else { return }
+        
         for index in offsets {
-            let contact = contacts[index]
+            let contact = contactsForDate[index]
             viewContext.delete(contact)
         }
         

@@ -25,7 +25,7 @@ struct CroppedPhotosPicker<Label: View>: View {
     @ViewBuilder private var label: () -> Label
     
     init(style: CroppedPhotosPickerCroppingStyle = .default,
-         options: CroppedPhotosPickerOptions = .init(),
+         options: CroppedPhotosPickerOptions = .init(aspectRatioPreset: .presetSquare),
          selection: Binding<UIImage?>,
          didCrop: ((CropView.CroppedRect) -> Void)? = nil,
          didCancel: (() -> Void)? = nil,
@@ -76,3 +76,4 @@ struct CroppedPhotosPicker<Label: View>: View {
         }
     }
 }
+

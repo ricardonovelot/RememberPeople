@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		8C374A262C0005FB006D8596 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C374A252C0005FB006D8596 /* Features.swift */; };
+		8CB26BDB2C0AAE0A00596198 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 8CB26BDA2C0AAE0A00596198 /* CropViewController */; };
+		8CB26BDD2C0AAE0A00596198 /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 8CB26BDC2C0AAE0A00596198 /* TOCropViewController */; };
+		8CB26BE42C0AAEE300596198 /* CroppedPhotosPickerCroppingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB26BDE2C0AAEE300596198 /* CroppedPhotosPickerCroppingStyle.swift */; };
+		8CB26BE52C0AAEE300596198 /* CroppedPhotosPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB26BDF2C0AAEE300596198 /* CroppedPhotosPicker.swift */; };
+		8CB26BE62C0AAEE300596198 /* PhotosPickerItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB26BE02C0AAEE300596198 /* PhotosPickerItem+.swift */; };
+		8CB26BE72C0AAEE300596198 /* CropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB26BE12C0AAEE300596198 /* CropView.swift */; };
+		8CB26BE82C0AAEE300596198 /* CropViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB26BE22C0AAEE300596198 /* CropViewController+.swift */; };
+		8CB26BE92C0AAEE300596198 /* CroppedPhotosPickerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB26BE32C0AAEE300596198 /* CroppedPhotosPickerOptions.swift */; };
 		8CB2927A2C08312B0073A152 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB292792C08312B0073A152 /* ContactsView.swift */; };
 		8CB2927E2C0832880073A152 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB2927D2C0832880073A152 /* SettingsView.swift */; };
 		8CCDFB252BFF1B5B0092DF63 /* ContactForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCDFB242BFF1B5B0092DF63 /* ContactForm.swift */; };
@@ -21,6 +29,12 @@
 
 /* Begin PBXFileReference section */
 		8C374A252C0005FB006D8596 /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
+		8CB26BDE2C0AAEE300596198 /* CroppedPhotosPickerCroppingStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppedPhotosPickerCroppingStyle.swift; sourceTree = "<group>"; };
+		8CB26BDF2C0AAEE300596198 /* CroppedPhotosPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppedPhotosPicker.swift; sourceTree = "<group>"; };
+		8CB26BE02C0AAEE300596198 /* PhotosPickerItem+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PhotosPickerItem+.swift"; sourceTree = "<group>"; };
+		8CB26BE12C0AAEE300596198 /* CropView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropView.swift; sourceTree = "<group>"; };
+		8CB26BE22C0AAEE300596198 /* CropViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CropViewController+.swift"; sourceTree = "<group>"; };
+		8CB26BE32C0AAEE300596198 /* CroppedPhotosPickerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppedPhotosPickerOptions.swift; sourceTree = "<group>"; };
 		8CB292792C08312B0073A152 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		8CB2927D2C0832880073A152 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8CCDFB242BFF1B5B0092DF63 /* ContactForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactForm.swift; sourceTree = "<group>"; };
@@ -38,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB26BDD2C0AAE0A00596198 /* TOCropViewController in Frameworks */,
+				8CB26BDB2C0AAE0A00596198 /* CropViewController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +87,12 @@
 				8CB2927D2C0832880073A152 /* SettingsView.swift */,
 				8CB292792C08312B0073A152 /* ContactsView.swift */,
 				8CCDFB242BFF1B5B0092DF63 /* ContactForm.swift */,
+				8CB26BDF2C0AAEE300596198 /* CroppedPhotosPicker.swift */,
+				8CB26BDE2C0AAEE300596198 /* CroppedPhotosPickerCroppingStyle.swift */,
+				8CB26BE32C0AAEE300596198 /* CroppedPhotosPickerOptions.swift */,
+				8CB26BE12C0AAEE300596198 /* CropView.swift */,
+				8CB26BE22C0AAEE300596198 /* CropViewController+.swift */,
+				8CB26BE02C0AAEE300596198 /* PhotosPickerItem+.swift */,
 				8CD8B2692BFD237000882A4E /* Assets.xcassets */,
 				8CD8B26B2BFD237000882A4E /* Preview Content */,
 			);
@@ -101,6 +123,10 @@
 			dependencies = (
 			);
 			name = RememberPeople;
+			packageProductDependencies = (
+				8CB26BDA2C0AAE0A00596198 /* CropViewController */,
+				8CB26BDC2C0AAE0A00596198 /* TOCropViewController */,
+			);
 			productName = RememberPeople;
 			productReference = 8CD8B2622BFD236D00882A4E /* RememberPeople.app */;
 			productType = "com.apple.product-type.application";
@@ -129,6 +155,9 @@
 				Base,
 			);
 			mainGroup = 8CD8B2592BFD236D00882A4E;
+			packageReferences = (
+				8CB26BD92C0AAE0A00596198 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+			);
 			productRefGroup = 8CD8B2632BFD236D00882A4E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -156,12 +185,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C374A262C0005FB006D8596 /* Features.swift in Sources */,
+				8CB26BE82C0AAEE300596198 /* CropViewController+.swift in Sources */,
 				8CB2927E2C0832880073A152 /* SettingsView.swift in Sources */,
+				8CB26BE42C0AAEE300596198 /* CroppedPhotosPickerCroppingStyle.swift in Sources */,
 				8CD8B2682BFD236D00882A4E /* ContentView.swift in Sources */,
 				8CCDFB252BFF1B5B0092DF63 /* ContactForm.swift in Sources */,
+				8CB26BE92C0AAEE300596198 /* CroppedPhotosPickerOptions.swift in Sources */,
 				8CD8B2772BFD241900882A4E /* DataController.swift in Sources */,
 				8CD8B2752BFD23F600882A4E /* People.xcdatamodeld in Sources */,
 				8CD8B2662BFD236D00882A4E /* RememberPeopleApp.swift in Sources */,
+				8CB26BE72C0AAEE300596198 /* CropView.swift in Sources */,
+				8CB26BE62C0AAEE300596198 /* PhotosPickerItem+.swift in Sources */,
+				8CB26BE52C0AAEE300596198 /* CroppedPhotosPicker.swift in Sources */,
 				8CB2927A2C08312B0073A152 /* ContactsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +405,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8CB26BD92C0AAE0A00596198 /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8CB26BDA2C0AAE0A00596198 /* CropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8CB26BD92C0AAE0A00596198 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = CropViewController;
+		};
+		8CB26BDC2C0AAE0A00596198 /* TOCropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8CB26BD92C0AAE0A00596198 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = TOCropViewController;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8CD8B2732BFD23F600882A4E /* People.xcdatamodeld */ = {

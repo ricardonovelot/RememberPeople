@@ -1,5 +1,8 @@
 import SwiftUI
 import PhotosUI
+import CropViewController
+
+// MARK: - ContactForm
 
 struct ContactForm: View {
     @Environment(\.managedObjectContext) var viewContext
@@ -10,6 +13,9 @@ struct ContactForm: View {
     @State private var pickerItem: PhotosPickerItem?
     @State private var selectedImage: UIImage?
     @State private var image: Image?
+    @State private var showImageSourceDialog = false
+    @State private var showCropView = false
+    @State private var showImagePicker = false
     
     @State private var name: String
     @State private var notes: String
@@ -17,7 +23,9 @@ struct ContactForm: View {
     @State private var tagInput: String = ""
     @State private var isShowingDeleteActions = false
     @State private var tagToDelete: Tag? = nil
-
+    
+    @FocusState private var isNameFocused: Bool
+    
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) private var allTags: FetchedResults<Tag>
     
     init(contact: Contact) {
@@ -33,78 +41,12 @@ struct ContactForm: View {
     
     var body: some View {
         Form {
-            Section {
-                DatePicker("Date Met", selection: $dateMet, displayedComponents: .date)
-            }
-            
-            Section {
-                TextField("Name", text: $name)
-            }
-            
-            Section {
-                PhotosPicker(selection: $pickerItem) {
-                    if let image = image {
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(height: 180)
-                            .clipped()
-                    } else {
-                        Image(systemName: "photo")
-                            .font(.largeTitle)
-                            .foregroundStyle(.secondary)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 180)
-                    }
-                }
-                .onChange(of: pickerItem) {
-                    Task {
-                        if let data = try? await pickerItem?.loadTransferable(type: Data.self),
-                           let uiImage = UIImage(data: data) {
-                            self.selectedImage = uiImage
-                            self.image = Image(uiImage: uiImage)
-                        }
-                    }
-                }
-            }
-            .listRowInsets(EdgeInsets())
-            
-            Section("Notes") {
-                TextEditor(text: $notes)
-                    .frame(minHeight: 100)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-            
-            Section("Tags") {
-                HStack {
-                    TextField("Add Tag", text: $tagInput, onCommit: addTag)
-                    Button(action: addTag) {
-                        Image(systemName: "plus.circle.fill")
-                            .foregroundColor(.blue)
-                    }
-                }
-                List {
-                    ForEach(allTags) { tag in
-                        Button(action: { toggleTag(tag) }) {
-                            HStack {
-                                Text(tag.name ?? "")
-                                Spacer()
-                                if contact.tags?.contains(tag) == true {
-                                    Image(systemName: "checkmark")
-                                }
-                            }
-                        }
-                        .swipeActions(edge: .trailing) {
-                            Button(role: .destructive) {
-                                tagToDelete = tag
-                                isShowingDeleteActions = true
-                            } label: {
-                                Label("Delete", systemImage: "trash")
-                            }
-                        }
-                    }
-                }
-            }
+            dateMetSection
+            nameSection
+            photoSection
+            notesSection
+            tagsSection
+            existingTagsSection
         }
         .confirmationDialog("Delete tag?", isPresented: $isShowingDeleteActions) {
             Button("Confirm Delete", role: .destructive) {
@@ -115,15 +57,172 @@ struct ContactForm: View {
         }
         .navigationTitle(contact.isNew ? "New Contact" : "Edit Contact")
         .navigationBarTitleDisplayMode(.inline)
-        .onDisappear {
-            saveContact()
+        .onDisappear { saveContact() }
+    }
+    
+    // MARK: - View Sections
+    
+    private var dateMetSection: some View {
+        Section {
+            DatePicker("Date Met", selection: $dateMet, displayedComponents: .date)
         }
     }
+    
+    private var nameSection: some View {
+        Section {
+            TextField("Name", text: $name)
+                .focused($isNameFocused)
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        isNameFocused = true
+                    }
+                }
+        }
+    }
+    
+    private var photoSection: some View {
+        Section {
+            ZStack {
+                if let image = image {
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: 180)
+                        .clipped()
+                } else {
+                    Image(systemName: "photo")
+                        .font(.largeTitle)
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 180)
+                }
+                
+                VStack {
+                    Spacer()
+                    HStack {
+                        cropButton
+                        Spacer()
+                    }
+                }
+            }
+            .onTapGesture { showImageSourceDialog = true }
+            .confirmationDialog("Select Image Source", isPresented: $showImageSourceDialog) {
+                Button("Gallery") { showImagePicker = true }
+                Button("Clipboard") { loadImageFromClipboard() }
+            }
+            .photosPicker(isPresented: $showImagePicker, selection: $pickerItem, matching: .images)
+            .onChange(of: pickerItem) { newItem in
+                loadImageFromPicker(newItem: newItem)
+            }
+            .sheet(isPresented: $showCropView) { cropViewSheet }
+        }
+        .listRowInsets(EdgeInsets())
+    }
+    
+    private var cropButton: some View {
+        Button(action: {
+            if selectedImage != nil {
+                showCropView = true
+            } else {
+                showImageSourceDialog = true
+            }
+        }) {
+            Image(systemName: "crop")
+                .padding(12)
+                .background(.thickMaterial)
+                .clipShape(Circle())
+        }
+        .padding()
+    }
+    
+    private var notesSection: some View {
+        Section("Notes") {
+            TextEditor(text: $notes)
+                .frame(minHeight: 100)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+    }
+    
+    private var tagsSection: some View {
+        Section("Tags") {
+            HStack {
+                TextField("Add Tag", text: $tagInput, onCommit: addTag)
+            }
+        }
+    }
+    
+    private var existingTagsSection: some View {
+        Section {
+            List {
+                ForEach(allTags) { tag in
+                    Button(action: { toggleTag(tag) }) {
+                        HStack {
+                            Text(tag.name ?? "")
+                            Spacer()
+                            if contact.tags?.contains(tag) == true {
+                                Image(systemName: "checkmark")
+                            }
+                        }
+                    }
+                    .swipeActions(edge: .trailing) {
+                        Button {
+                            tagToDelete = tag
+                            isShowingDeleteActions = true
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // MARK: - Image Handling
+    
+    private func loadImageFromClipboard() {
+        if let clipboardImage = UIPasteboard.general.image {
+            selectedImage = clipboardImage
+            image = Image(uiImage: clipboardImage)
+            showCropView = true
+        }
+    }
+    
+    private func loadImageFromPicker(newItem: PhotosPickerItem?) {
+        if let newItem = newItem {
+            Task {
+                if let data = try? await newItem.loadTransferable(type: Data.self),
+                   let uiImage = UIImage(data: data) {
+                    selectedImage = uiImage
+                    image = Image(uiImage: uiImage)
+                    showCropView = true
+                }
+            }
+        }
+    }
+    
+    private var cropViewSheet: some View {
+        if let selectedImage = selectedImage {
+            return AnyView(CropView(image: selectedImage) { croppedImage in
+                self.selectedImage = croppedImage.image
+                self.image = Image(uiImage: croppedImage.image)
+                self.showCropView = false
+            } didCropToCircularImage: { croppedImage in
+                self.selectedImage = croppedImage.image
+                self.image = Image(uiImage: croppedImage.image)
+                self.showCropView = false
+            } didFinishCancelled: { _ in
+                self.showCropView = false
+            })
+        } else {
+            return AnyView(EmptyView())
+        }
+    }
+    
+    // MARK: - Tag Handling
     
     private func addTag() {
         guard !tagInput.isEmpty else { return }
         
-        // Check if the tag already exists
         if let existingTag = allTags.first(where: { $0.name == tagInput }) {
             contact.addToTags(existingTag)
         } else {
@@ -151,6 +250,8 @@ struct ContactForm: View {
         saveContext()
     }
     
+    // MARK: - Save Context
+    
     private func saveContact() {
         contact.name = name.isEmpty ? "New Person" : name
         contact.notes = notes
@@ -172,11 +273,15 @@ struct ContactForm: View {
     }
 }
 
+// MARK: - Contact Extension
+
 extension Contact {
     var isNew: Bool {
         id == nil
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     let dataController = DataController()

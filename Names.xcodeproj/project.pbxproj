@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C0A25B82C119B8A007ECD5E /* InteractionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A25B72C119B8A007ECD5E /* InteractionsView.swift */; };
 		8C374A262C0005FB006D8596 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C374A252C0005FB006D8596 /* Features.swift */; };
 		8CA584202C0E8E1F00FDE9EB /* ContactExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA5841F2C0E8E1F00FDE9EB /* ContactExtensions.swift */; };
 		8CA584252C0E9FBB00FDE9EB /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 8CA584242C0E9FBB00FDE9EB /* Flow */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C0A25B72C119B8A007ECD5E /* InteractionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionsView.swift; sourceTree = "<group>"; };
 		8C374A252C0005FB006D8596 /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
 		8CA5841F2C0E8E1F00FDE9EB /* ContactExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactExtensions.swift; sourceTree = "<group>"; };
 		8CB26BDE2C0AAEE300596198 /* CroppedPhotosPickerCroppingStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppedPhotosPickerCroppingStyle.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		8CD8B2592BFD236D00882A4E = {
 			isa = PBXGroup;
 			children = (
+				8C0A25B72C119B8A007ECD5E /* InteractionsView.swift */,
 				8CD8B2642BFD236D00882A4E /* RememberPeople */,
 				8CD8B2632BFD236D00882A4E /* Products */,
 			);
@@ -152,7 +155,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8CD8B25D2BFD236D00882A4E /* Build configuration list for PBXProject "RememberPeople" */;
+			buildConfigurationList = 8CD8B25D2BFD236D00882A4E /* Build configuration list for PBXProject "Name" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -206,6 +209,7 @@
 				8CA584202C0E8E1F00FDE9EB /* ContactExtensions.swift in Sources */,
 				8CB26BE52C0AAEE300596198 /* CroppedPhotosPicker.swift in Sources */,
 				8CB2927A2C08312B0073A152 /* ContactsView.swift in Sources */,
+				8C0A25B82C119B8A007ECD5E /* InteractionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,9 +360,13 @@
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ricardo.RememberPeople;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -387,16 +395,20 @@
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ricardo.RememberPeople;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8CD8B25D2BFD236D00882A4E /* Build configuration list for PBXProject "RememberPeople" */ = {
+		8CD8B25D2BFD236D00882A4E /* Build configuration list for PBXProject "Name" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8CD8B26E2BFD237000882A4E /* Debug */,

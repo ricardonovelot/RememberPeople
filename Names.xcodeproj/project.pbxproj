@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8C374A262C0005FB006D8596 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C374A252C0005FB006D8596 /* Features.swift */; };
+		8CA584202C0E8E1F00FDE9EB /* ContactExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA5841F2C0E8E1F00FDE9EB /* ContactExtensions.swift */; };
+		8CA584252C0E9FBB00FDE9EB /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 8CA584242C0E9FBB00FDE9EB /* Flow */; };
 		8CB26BDB2C0AAE0A00596198 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 8CB26BDA2C0AAE0A00596198 /* CropViewController */; };
 		8CB26BDD2C0AAE0A00596198 /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 8CB26BDC2C0AAE0A00596198 /* TOCropViewController */; };
 		8CB26BE42C0AAEE300596198 /* CroppedPhotosPickerCroppingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB26BDE2C0AAEE300596198 /* CroppedPhotosPickerCroppingStyle.swift */; };
@@ -29,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		8C374A252C0005FB006D8596 /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
+		8CA5841F2C0E8E1F00FDE9EB /* ContactExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactExtensions.swift; sourceTree = "<group>"; };
 		8CB26BDE2C0AAEE300596198 /* CroppedPhotosPickerCroppingStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppedPhotosPickerCroppingStyle.swift; sourceTree = "<group>"; };
 		8CB26BDF2C0AAEE300596198 /* CroppedPhotosPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppedPhotosPicker.swift; sourceTree = "<group>"; };
 		8CB26BE02C0AAEE300596198 /* PhotosPickerItem+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PhotosPickerItem+.swift"; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 			files = (
 				8CB26BDD2C0AAE0A00596198 /* TOCropViewController in Frameworks */,
 				8CB26BDB2C0AAE0A00596198 /* CropViewController in Frameworks */,
+				8CA584252C0E9FBB00FDE9EB /* Flow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +90,7 @@
 				8CD8B2672BFD236D00882A4E /* ContentView.swift */,
 				8CB2927D2C0832880073A152 /* SettingsView.swift */,
 				8CB292792C08312B0073A152 /* ContactsView.swift */,
+				8CA5841F2C0E8E1F00FDE9EB /* ContactExtensions.swift */,
 				8CCDFB242BFF1B5B0092DF63 /* ContactForm.swift */,
 				8CB26BDF2C0AAEE300596198 /* CroppedPhotosPicker.swift */,
 				8CB26BDE2C0AAEE300596198 /* CroppedPhotosPickerCroppingStyle.swift */,
@@ -126,6 +131,7 @@
 			packageProductDependencies = (
 				8CB26BDA2C0AAE0A00596198 /* CropViewController */,
 				8CB26BDC2C0AAE0A00596198 /* TOCropViewController */,
+				8CA584242C0E9FBB00FDE9EB /* Flow */,
 			);
 			productName = RememberPeople;
 			productReference = 8CD8B2622BFD236D00882A4E /* RememberPeople.app */;
@@ -157,6 +163,7 @@
 			mainGroup = 8CD8B2592BFD236D00882A4E;
 			packageReferences = (
 				8CB26BD92C0AAE0A00596198 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+				8CA584232C0E9FBB00FDE9EB /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
 			);
 			productRefGroup = 8CD8B2632BFD236D00882A4E /* Products */;
 			projectDirPath = "";
@@ -196,6 +203,7 @@
 				8CD8B2662BFD236D00882A4E /* RememberPeopleApp.swift in Sources */,
 				8CB26BE72C0AAEE300596198 /* CropView.swift in Sources */,
 				8CB26BE62C0AAEE300596198 /* PhotosPickerItem+.swift in Sources */,
+				8CA584202C0E8E1F00FDE9EB /* ContactExtensions.swift in Sources */,
 				8CB26BE52C0AAEE300596198 /* CroppedPhotosPicker.swift in Sources */,
 				8CB2927A2C08312B0073A152 /* ContactsView.swift in Sources */,
 			);
@@ -334,6 +342,7 @@
 				DEVELOPMENT_TEAM = 8PKHC34MY2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -344,7 +353,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ricardo.RememberPeople;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -364,6 +373,7 @@
 				DEVELOPMENT_TEAM = 8PKHC34MY2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -374,7 +384,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ricardo.RememberPeople;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -407,6 +417,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8CA584232C0E9FBB00FDE9EB /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tevelee/SwiftUI-Flow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.1;
+			};
+		};
 		8CB26BD92C0AAE0A00596198 /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
@@ -418,6 +436,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8CA584242C0E9FBB00FDE9EB /* Flow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8CA584232C0E9FBB00FDE9EB /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */;
+			productName = Flow;
+		};
 		8CB26BDA2C0AAE0A00596198 /* CropViewController */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8CB26BD92C0AAE0A00596198 /* XCRemoteSwiftPackageReference "TOCropViewController" */;

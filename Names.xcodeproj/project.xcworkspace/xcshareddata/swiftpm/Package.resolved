@@ -1,0 +1,24 @@
+{
+  "originHash" : "0962e7d73c64c101a706b4022b1668823e9aa2768b78dc7da2c7f5ed003108ba",
+  "pins" : [
+    {
+      "identity" : "swiftui-flow",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tevelee/SwiftUI-Flow",
+      "state" : {
+        "revision" : "5da6e12bf5e5cb096db7de6af7f02f7f02444cf3",
+        "version" : "1.3.1"
+      }
+    },
+    {
+      "identity" : "tocropviewcontroller",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TimOliver/TOCropViewController.git",
+      "state" : {
+        "revision" : "a634cb7cdfd580006e79a6e74e64417fe9e9783b",
+        "version" : "2.7.4"
+      }
+    }
+  ],
+  "version" : 3
+}

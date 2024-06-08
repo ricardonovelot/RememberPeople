@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8C0A25B82C119B8A007ECD5E /* InteractionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A25B72C119B8A007ECD5E /* InteractionsView.swift */; };
 		8C374A262C0005FB006D8596 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C374A252C0005FB006D8596 /* Features.swift */; };
+		8C7AB2692C12F95B00CB72AC /* RecentlyDeletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7AB2682C12F95B00CB72AC /* RecentlyDeletedView.swift */; };
 		8CA584202C0E8E1F00FDE9EB /* ContactExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA5841F2C0E8E1F00FDE9EB /* ContactExtensions.swift */; };
 		8CA584252C0E9FBB00FDE9EB /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 8CA584242C0E9FBB00FDE9EB /* Flow */; };
 		8CB26BDB2C0AAE0A00596198 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 8CB26BDA2C0AAE0A00596198 /* CropViewController */; };
@@ -20,7 +21,6 @@
 		8CB26BE82C0AAEE300596198 /* CropViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB26BE22C0AAEE300596198 /* CropViewController+.swift */; };
 		8CB26BE92C0AAEE300596198 /* CroppedPhotosPickerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB26BE32C0AAEE300596198 /* CroppedPhotosPickerOptions.swift */; };
 		8CB2927A2C08312B0073A152 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB292792C08312B0073A152 /* ContactsView.swift */; };
-		8CB2927E2C0832880073A152 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB2927D2C0832880073A152 /* SettingsView.swift */; };
 		8CCDFB252BFF1B5B0092DF63 /* ContactForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCDFB242BFF1B5B0092DF63 /* ContactForm.swift */; };
 		8CD8B2662BFD236D00882A4E /* RememberPeopleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD8B2652BFD236D00882A4E /* RememberPeopleApp.swift */; };
 		8CD8B2682BFD236D00882A4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD8B2672BFD236D00882A4E /* ContentView.swift */; };
@@ -33,6 +33,9 @@
 /* Begin PBXFileReference section */
 		8C0A25B72C119B8A007ECD5E /* InteractionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionsView.swift; sourceTree = "<group>"; };
 		8C374A252C0005FB006D8596 /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
+		8C7AB2682C12F95B00CB72AC /* RecentlyDeletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyDeletedView.swift; sourceTree = "<group>"; };
+		8C7AB26A2C13C83000CB72AC /* RememberPeople.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RememberPeople.entitlements; sourceTree = "<group>"; };
+		8C7AB2A72C13DC6700CB72AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8CA5841F2C0E8E1F00FDE9EB /* ContactExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactExtensions.swift; sourceTree = "<group>"; };
 		8CB26BDE2C0AAEE300596198 /* CroppedPhotosPickerCroppingStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppedPhotosPickerCroppingStyle.swift; sourceTree = "<group>"; };
 		8CB26BDF2C0AAEE300596198 /* CroppedPhotosPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppedPhotosPicker.swift; sourceTree = "<group>"; };
@@ -41,7 +44,6 @@
 		8CB26BE22C0AAEE300596198 /* CropViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CropViewController+.swift"; sourceTree = "<group>"; };
 		8CB26BE32C0AAEE300596198 /* CroppedPhotosPickerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppedPhotosPickerOptions.swift; sourceTree = "<group>"; };
 		8CB292792C08312B0073A152 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
-		8CB2927D2C0832880073A152 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8CCDFB242BFF1B5B0092DF63 /* ContactForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactForm.swift; sourceTree = "<group>"; };
 		8CD8B2622BFD236D00882A4E /* RememberPeople.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RememberPeople.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CD8B2652BFD236D00882A4E /* RememberPeopleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberPeopleApp.swift; sourceTree = "<group>"; };
@@ -86,13 +88,15 @@
 		8CD8B2642BFD236D00882A4E /* RememberPeople */ = {
 			isa = PBXGroup;
 			children = (
+				8C7AB2A72C13DC6700CB72AC /* Info.plist */,
+				8C7AB26A2C13C83000CB72AC /* RememberPeople.entitlements */,
 				8CD8B2732BFD23F600882A4E /* People.xcdatamodeld */,
 				8C374A252C0005FB006D8596 /* Features.swift */,
 				8CD8B2762BFD241900882A4E /* DataController.swift */,
 				8CD8B2652BFD236D00882A4E /* RememberPeopleApp.swift */,
 				8CD8B2672BFD236D00882A4E /* ContentView.swift */,
-				8CB2927D2C0832880073A152 /* SettingsView.swift */,
 				8CB292792C08312B0073A152 /* ContactsView.swift */,
+				8C7AB2682C12F95B00CB72AC /* RecentlyDeletedView.swift */,
 				8CA5841F2C0E8E1F00FDE9EB /* ContactExtensions.swift */,
 				8CCDFB242BFF1B5B0092DF63 /* ContactForm.swift */,
 				8CB26BDF2C0AAEE300596198 /* CroppedPhotosPicker.swift */,
@@ -155,7 +159,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8CD8B25D2BFD236D00882A4E /* Build configuration list for PBXProject "Name" */;
+			buildConfigurationList = 8CD8B25D2BFD236D00882A4E /* Build configuration list for PBXProject "Names" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -196,7 +200,6 @@
 			files = (
 				8C374A262C0005FB006D8596 /* Features.swift in Sources */,
 				8CB26BE82C0AAEE300596198 /* CropViewController+.swift in Sources */,
-				8CB2927E2C0832880073A152 /* SettingsView.swift in Sources */,
 				8CB26BE42C0AAEE300596198 /* CroppedPhotosPickerCroppingStyle.swift in Sources */,
 				8CD8B2682BFD236D00882A4E /* ContentView.swift in Sources */,
 				8CCDFB252BFF1B5B0092DF63 /* ContactForm.swift in Sources */,
@@ -207,6 +210,7 @@
 				8CB26BE72C0AAEE300596198 /* CropView.swift in Sources */,
 				8CB26BE62C0AAEE300596198 /* PhotosPickerItem+.swift in Sources */,
 				8CA584202C0E8E1F00FDE9EB /* ContactExtensions.swift in Sources */,
+				8C7AB2692C12F95B00CB72AC /* RecentlyDeletedView.swift in Sources */,
 				8CB26BE52C0AAEE300596198 /* CroppedPhotosPicker.swift in Sources */,
 				8CB2927A2C08312B0073A152 /* ContactsView.swift in Sources */,
 				8C0A25B82C119B8A007ECD5E /* InteractionsView.swift in Sources */,
@@ -340,12 +344,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RememberPeople/RememberPeople.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RememberPeople/Preview Content\"";
 				DEVELOPMENT_TEAM = 8PKHC34MY2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RememberPeople/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -375,12 +381,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RememberPeople/RememberPeople.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RememberPeople/Preview Content\"";
 				DEVELOPMENT_TEAM = 8PKHC34MY2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RememberPeople/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -408,7 +416,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8CD8B25D2BFD236D00882A4E /* Build configuration list for PBXProject "Name" */ = {
+		8CD8B25D2BFD236D00882A4E /* Build configuration list for PBXProject "Names" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8CD8B26E2BFD237000882A4E /* Debug */,
